@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Ruks 💕</title>
+
+    <!-- Fonts: Playfair Display for romance, Quicksand for playful body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Quicksand:wght@400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ============================================
+           CSS Variables - Dreamy Romantic Palette
+           ============================================ */
+        :root {
+            --bg-cream: #FDF8F3;
+            --bg-blush: #FFF0ED;
+            --bg-lavender: #F8F4FF;
+            --text-primary: #4A3F55;
+            --text-soft: #7B6B8A;
+            --text-whisper: #A89BB5;
+            --accent-rose: #E8A4B8;
+            --accent-coral: #F5B4A8;
+            --accent-lavender: #C9B8E8;
+            --accent-mint: #B8E8D4;
+            --accent-gold: #F5D4A8;
+            --accent-peach: #FFD4C4;
+            --heart-pink: #FFB4C8;
+            --heart-purple: #D4B8F0;
+            --glow-pink: rgba(232, 164, 184, 0.5);
+            --glow-lavender: rgba(201, 184, 232, 0.4);
+            --sparkle: #FFE4B8;
+        }
+
+        /* ============================================
+           Base Styles & Reset
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: var(--bg-cream);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><text y="18" font-size="18">💕</text></svg>'), auto;
+        }
+
+        /* ============================================
+           Section Base Styles
+           ============================================ */
+        section {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        /* ============================================
+           Typography
+           ============================================ */
+        .romantic-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .handwritten {
+            font-family: 'Caveat', cursive;
+            font-weight: 500;
+        }
+
+        .heading-large {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .heading-medium {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            font-weight: 500;
+        }
+
+        .body-text {
+            font-size: clamp(1.1rem, 4vw, 1.4rem);
+            line-height: 1.8;
+            max-width: 340px;
+        }
+
+        /* ============================================
+           Magical Background Elements
+           ============================================ */
+        .magic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.12;
+            animation: floatAround linear infinite;
+            font-size: 24px;
+        }
+
+        @keyframes floatAround {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 0.15; }
+            90% { opacity: 0.15; }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(0.8);
+                opacity: 0;
+            }
+        }
+
+        /* Sparkle trail on mouse */
+        .sparkle-trail {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1000;
+            font-size: 12px;
+            animation: sparkleOut 0.8s ease-out forwards;
+        }
+
+        @keyframes sparkleOut {
+            0% { opacity: 1; transform: scale(1) rotate(0deg); }
+            100% { opacity: 0; transform: scale(0) rotate(180deg) translateY(-20px); }
+        }
+
+        /* ============================================
+           Section 1: Landing - The Grand Entrance
+           ============================================ */
+        #landing {
+            background:
+                radial-gradient(ellipse at 30% 20%, rgba(201, 184, 232, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 80%, rgba(232, 164, 184, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, var(--bg-lavender) 0%, var(--bg-cream) 100%);
+        }
+
+        .landing-content {
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .greeting {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+            animation: magicReveal 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+            position: relative;
+        }
+
+        .greeting::after {
+            content: '✨';
+            position: absolute;
+            top: -10px;
+            right: -30px;
+            animation: twinkle 1.5s ease-in-out infinite;
+            font-size: 1.5rem;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.5; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(15deg); }
+        }
+
+        .subtext {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1s forwards;
+            margin-top: 1.5rem;
+            color: var(--text-soft);
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .secret-message {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 1.5s forwards;
+            margin-top: 0.8rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.4rem;
+            color: var(--accent-rose);
+        }
+
+        .scroll-hint {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2s forwards, floatBounce 2s ease-in-out 3s infinite;
+            margin-top: 3rem;
+            color: var(--accent-lavender);
+            font-size: 1.1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scroll-hint .arrow {
+            font-size: 1.5rem;
+            animation: bounce 1.5s ease-in-out infinite;
+        }
+
+        @keyframes magicReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        @keyframes floatBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* ============================================
+           Section 2: The Journey - Our Story Counter
+           ============================================ */
+        #story {
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(232, 164, 184, 0.12) 0%, transparent 60%),
+                linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-blush) 100%);
+        }
+
+        .story-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 420px;
+        }
+
+        .story-line {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease-out, transform 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin-bottom: 1.8rem;
+        }
+
+        .story-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .story-line.days-counter {
+            font-size: clamp(3.5rem, 15vw, 6rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-lavender) 50%, var(--accent-coral) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: inline-block;
+        }
+
+        .story-line.days-counter::before,
+        .story-line.days-counter::after {
+            content: '💫';
+            position: absolute;
+            font-size: 1.5rem;
+            -webkit-text-fill-color: initial;
+        }
+
+        .story-line.days-counter::before {
+            top: 0;
+            left: -40px;
+            animation: orbit 4s linear infinite;
+        }
+
+        .story-line.days-counter::after {
+            bottom: 0;
+            right: -40px;
+            animation: orbit 4s linear infinite reverse;
+        }
+
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(10px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(10px) rotate(-360deg); }
+        }
+
+        .story-line.smile {
+            transition-delay: 0.3s;
+            color: var(--text-primary);
+        }
+
+        .story-line.care {
+            transition-delay: 0.5s;
+            font-style: italic;
+            color: var(--text-soft);
+        }
+
+        .story-line.extras {
+            transition-delay: 0.7s;
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            color: var(--accent-rose);
+        }
+
+        /* ============================================
+           Section 3: Reasons Why - The Love List
+           ============================================ */
+        #reasons {
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(184, 232, 212, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(245, 212, 168, 0.15) 0%, transparent 50%),
+                linear-gradient(180deg, var(--bg-blush) 0%, var(--bg-lavender) 100%);
+        }
+
+        .reasons-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 500px;
+        }
+
+        .reasons-title {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .reasons-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reasons-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-rose), var(--accent-lavender));
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .reason-card {
+            opacity: 0;
+            transform: translateX(-30px) rotate(-2deg);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 1.8rem;
+            border-radius: 20px;
+            margin-bottom: 1rem;
+            border: 2px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(135deg, var(--accent-rose), var(--accent-lavender));
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 4px 20px rgba(232, 164, 184, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .reason-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .reason-card:hover::before {
+            left: 100%;
+        }
+
+        .reason-card.visible {
+            opacity: 1;
+            transform: translateX(0) rotate(0deg);
+        }
+
+        .reason-card:nth-child(odd) {
+            transform: translateX(30px) rotate(2deg);
+        }
+
+        .reason-card:nth-child(odd).visible {
+            transform: translateX(0) rotate(0deg);
+        }
+
+        .reason-card .emoji {
+            font-size: 1.5rem;
+            margin-right: 0.8rem;
+        }
+
+        .reason-card .text {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        /* ============================================
+           Section 4: Fun Facts - Playful Stats
+           ============================================ */
+        #funfacts {
+            background:
+                radial-gradient(ellipse at 50% 50%, rgba(201, 184, 232, 0.15) 0%, transparent 60%),
+                linear-gradient(180deg, var(--bg-lavender) 0%, var(--bg-cream) 100%);
+        }
+
+        .funfacts-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 500px;
+        }
+
+        .funfacts-title {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            margin-bottom: 2rem;
+            font-family: 'Caveat', cursive;
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--accent-lavender);
+        }
+
+        .funfacts-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .stat-card {
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 1rem;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .stat-card.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05) rotate(2deg);
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-rose), var(--accent-lavender));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            margin-top: 0.3rem;
+        }
+
+        .stat-emoji {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ============================================
+           Section 5: The Question - Big Moment
+           ============================================ */
+        #question {
+            background:
+                radial-gradient(ellipse at 50% 30%, rgba(245, 180, 168, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(232, 164, 184, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, var(--bg-cream) 0%, var(--bg-blush) 100%);
+        }
+
+        .question-content {
+            text-align: center;
+            z-index: 1;
+        }
+
+        .preamble {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            color: var(--text-soft);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .preamble.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dramatic-pause {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--accent-rose);
+            margin-bottom: 2rem;
+        }
+
+        .dramatic-pause.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .main-question {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 1s ease-out 0.5s, transform 1s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .main-question.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .main-question .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .main-question .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--accent-rose), var(--accent-lavender));
+            opacity: 0.3;
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        .buttons-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.8s ease-out 0.8s;
+            min-height: 100px;
+            position: relative;
+        }
+
+        .buttons-container.visible {
+            opacity: 1;
+        }
+
+        /* Yes Button - The Star */
+        .btn-yes {
+            padding: 1.2rem 3rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--accent-rose) 0%, var(--accent-coral) 50%, var(--accent-lavender) 100%);
+            background-size: 200% 200%;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 6px 30px var(--glow-pink);
+            animation: gradientShift 3s ease-in-out infinite, gentlePulse 2s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .btn-yes::before {
+            content: '💕';
+            position: absolute;
+            top: 50%;
+            left: -30px;
+            transform: translateY(-50%);
+            transition: left 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .btn-yes::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            transform: translateY(-50%);
+            transition: right 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .btn-yes:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 40px var(--glow-pink);
+        }
+
+        .btn-yes:hover::before { left: 15px; }
+        .btn-yes:hover::after { right: 15px; }
+
+        .btn-yes:active {
+            transform: scale(0.98);
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { box-shadow: 0 6px 30px var(--glow-pink); }
+            50% { box-shadow: 0 6px 50px var(--glow-pink); }
+        }
+
+        /* No Button - The Escape Artist */
+        .btn-no {
+            padding: 0.9rem 2rem;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-soft);
+            background: rgba(255, 255, 255, 0.8);
+            border: 2px solid var(--accent-lavender);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: absolute;
+            right: -120px;
+        }
+
+        .btn-no:hover {
+            color: var(--accent-rose);
+            border-color: var(--accent-rose);
+        }
+
+        /* ============================================
+           Enhanced Mobile Responsiveness
+           ============================================ */
+        @media (max-width: 600px) {
+            section {
+                padding: 1.5rem 1rem;
+            }
+
+            .heading-large {
+                font-size: clamp(2rem, 10vw, 3.5rem);
+            }
+
+            .heading-medium {
+                font-size: clamp(1.5rem, 5vw, 2.2rem);
+            }
+
+            .body-text {
+                font-size: clamp(1rem, 4vw, 1.2rem);
+                max-width: 90vw;
+                padding: 0 0.5rem;
+            }
+
+            .story-content, .reasons-content, .funfacts-content {
+                max-width: 90vw;
+                padding: 0 0.5rem;
+            }
+
+            .story-line.days-counter {
+                font-size: clamp(2.8rem, 14vw, 4.5rem);
+            }
+
+            .story-line.days-counter::before,
+            .story-line.days-counter::after {
+                display: none;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .stat-card {
+                padding: 1rem 0.8rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+
+            .reason-card {
+                padding: 1rem 1.2rem;
+            }
+
+            .buttons-container {
+                flex-direction: column;
+                gap: 1.2rem;
+                min-height: 160px;
+                width: 100%;
+                max-width: 280px;
+            }
+
+            .btn-yes {
+                padding: 1.2rem 3rem;
+                font-size: 1.2rem;
+                width: 100%;
+                min-height: 56px;
+            }
+
+            .btn-yes::before, .btn-yes::after {
+                display: none;
+            }
+
+            .btn-no {
+                position: relative;
+                right: auto;
+                padding: 1rem 2rem;
+                font-size: 1rem;
+                min-height: 50px;
+                min-width: 130px;
+            }
+
+            .main-question {
+                margin-bottom: 2rem;
+                padding: 0 0.5rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .heading-large {
+                font-size: clamp(1.8rem, 9vw, 2.8rem);
+            }
+
+            .story-line.days-counter {
+                font-size: clamp(2.2rem, 12vw, 3.5rem);
+            }
+
+            .stat-number {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* ============================================
+           Section 6: Celebration - The Grand Finale
+           ============================================ */
+        #celebration {
+            display: none;
+            background:
+                radial-gradient(ellipse at 30% 30%, rgba(232, 164, 184, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 70%, rgba(201, 184, 232, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(245, 180, 168, 0.2) 0%, transparent 60%),
+                linear-gradient(180deg, var(--bg-blush) 0%, var(--bg-lavender) 50%, var(--bg-cream) 100%);
+        }
+
+        #celebration.active {
+            display: flex;
+        }
+
+        .celebration-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 500px;
+        }
+
+        .celebration-text {
+            opacity: 0;
+            transform: translateY(40px) scale(0.9);
+            animation: celebrationReveal 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .celebration-text:nth-child(2) {
+            animation-delay: 0.5s;
+        }
+
+        .celebration-text:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .celebration-text:nth-child(4) {
+            animation-delay: 1.5s;
+        }
+
+        .celebration-text:nth-child(5) {
+            animation-delay: 2s;
+        }
+
+        @keyframes celebrationReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .celebration-main {
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .celebration-main::before {
+            content: '🎉';
+            position: absolute;
+            left: -50px;
+            animation: partyPop 1s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        .celebration-main::after {
+            content: '🎉';
+            position: absolute;
+            right: -50px;
+            animation: partyPop 1s ease-out 0.8s forwards;
+            opacity: 0;
+        }
+
+        @keyframes partyPop {
+            0% { opacity: 0; transform: scale(0) rotate(-20deg); }
+            50% { transform: scale(1.3) rotate(10deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+
+        .celebration-sub {
+            font-size: clamp(1.3rem, 4vw, 1.8rem);
+            color: var(--text-soft);
+            margin-bottom: 1.5rem;
+        }
+
+        .celebration-playful {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            color: var(--accent-rose);
+            margin-bottom: 1rem;
+        }
+
+        .celebration-promise {
+            font-style: italic;
+            color: var(--text-whisper);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            font-family: 'Caveat', cursive;
+            font-size: 1.8rem;
+            color: var(--accent-lavender);
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 2.5s forwards;
+        }
+
+        .signature .heart {
+            display: inline-block;
+            animation: heartbeat 1s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .heart-burst {
+            position: absolute;
+            font-size: 2rem;
+            animation: heartBurst 1.2s ease-out forwards;
+            pointer-events: none;
+        }
+
+        @keyframes heartBurst {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) scale(0);
+            }
+        }
+
+        /* Secret restart button */
+        .restart-hint {
+            opacity: 0;
+            animation: fadeInUp 1s ease-out 4s forwards;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+            color: var(--text-whisper);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .restart-hint:hover {
+            color: var(--accent-rose);
+        }
+
+        /* ============================================
+           Confetti Canvas
+           ============================================ */
+        #confetti-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        /* Hide sections after celebration */
+        section.hidden {
+            display: none;
+        }
+
+        /* ============================================
+           Accessibility
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Magical Background Elements -->
+    <div class="magic-bg" id="magic-bg"></div>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Section 1: Landing - The Grand Entrance -->
+    <section id="landing">
+        <div class="landing-content">
+            <h1 class="romantic-text heading-large greeting">Hey Ruks...</h1>
+            <p class="romantic-text body-text subtext">I made something special, just for you.</p>
+            <p class="secret-message">psst... it's got secrets 🤫</p>
+            <div class="scroll-hint">
+                <span>Begin our journey</span>
+                <span class="arrow">↓</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Journey - Our Story Counter -->
+    <section id="story">
+        <div class="story-content">
+            <p class="romantic-text story-line days-counter"><span id="day-count">0</span> days</p>
+            <p class="romantic-text heading-medium story-line smile">
+                of falling for you, over and over again.
+            </p>
+            <p class="romantic-text body-text story-line care">
+                Every single one of them—filled with your laughter, your kindness, and moments that made my heart skip.
+            </p>
+            <p class="handwritten story-line extras">
+                (and yes, I counted them all) ✨
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 3: Reasons Why - The Love List -->
+    <section id="reasons">
+        <div class="reasons-content">
+            <h2 class="romantic-text heading-medium reasons-title">Why you're my favorite person:</h2>
+
+            <div class="reason-card">
+                <span class="emoji">🌟</span>
+                <span class="text">Your smile could power a small city</span>
+            </div>
+
+            <div class="reason-card">
+                <span class="emoji">🧠</span>
+                <span class="text">You're the smartest person I know (and I know it all 😏)</span>
+            </div>
+
+            <div class="reason-card">
+                <span class="emoji">🫂</span>
+                <span class="text">Your hugs feel like coming home</span>
+            </div>
+
+            <div class="reason-card">
+                <span class="emoji">🎭</span>
+                <span class="text">You laugh at my terrible jokes (bless you)</span>
+            </div>
+
+            <div class="reason-card">
+                <span class="emoji">💫</span>
+                <span class="text">You make even ordinary days feel magical</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Fun Facts - Playful Stats -->
+    <section id="funfacts">
+        <div class="funfacts-content">
+            <h2 class="funfacts-title">Our Love by the Numbers 📊</h2>
+
+            <div class="stat-grid">
+                <div class="stat-card">
+                    <div class="stat-emoji">💭</div>
+                    <div class="stat-number" id="thoughts-count">∞</div>
+                    <div class="stat-label">times I've thought of you today</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-emoji">😊</div>
+                    <div class="stat-number" id="smile-count">100%</div>
+                    <div class="stat-label">of my smiles caused by you</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-emoji">📸</div>
+                    <div class="stat-number">1000<small>s</small></div>
+                    <div class="stat-label">mental photos of your smile</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-emoji">🦋</div>
+                    <div class="stat-number" id="butterfly-count">1M+</div>
+                    <div class="stat-label">butterflies in my stomach</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: The Question - Big Moment -->
+    <section id="question">
+        <div class="question-content">
+            <p class="romantic-text body-text preamble">After all these days together...</p>
+            <p class="dramatic-pause">*deep breath*</p>
+            <h2 class="romantic-text heading-large main-question">
+                <span class="highlight">Ruks</span>, will you be my Valentine?
+            </h2>
+            <div class="buttons-container">
+                <button class="btn-yes" id="btn-yes">Yes! 💕</button>
+                <button class="btn-no" id="btn-no">No</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Celebration - The Grand Finale -->
+    <section id="celebration">
+        <div class="celebration-content">
+            <h2 class="romantic-text celebration-text celebration-main">I knew it! 💕</h2>
+            <p class="romantic-text celebration-text celebration-sub">
+                You just made me the happiest person alive.
+            </p>
+            <p class="celebration-text celebration-playful">
+                Get ready for the most amazing February 14th ever! 🌹
+            </p>
+            <p class="romantic-text celebration-text celebration-promise">
+                I promise to make every moment special—starting with this one.
+            </p>
+            <p class="handwritten celebration-text signature">
+                Forever & always yours <span class="heart">❤️</span>
+            </p>
+            <p class="restart-hint" id="restart">← want to see it again?</p>
+        </div>
+    </section>
+
+    <script>
+        // ============================================
+        // Magical Floating Elements Generator
+        // ============================================
+        function createMagicElements() {
+            const container = document.getElementById('magic-bg');
+            const elements = ['💕', '✨', '💫', '🌸', '💗', '🦋', '⭐', '💖', '🌹', '💝'];
+            const colors = ['#F2B5B5', '#C9B8E0', '#E8B4B8', '#F5C7A9', '#B8E8D4'];
+
+            function createElement() {
+                const el = document.createElement('span');
+                el.className = 'floating-element';
+                el.textContent = elements[Math.floor(Math.random() * elements.length)];
+                el.style.left = Math.random() * 100 + 'vw';
+                el.style.fontSize = (Math.random() * 20 + 12) + 'px';
+                el.style.animationDuration = (Math.random() * 15 + 20) + 's';
+                el.style.animationDelay = Math.random() * 5 + 's';
+                container.appendChild(el);
+                setTimeout(() => el.remove(), 35000);
+            }
+
+            for (let i = 0; i < 12; i++) {
+                setTimeout(createElement, i * 400);
+            }
+            setInterval(createElement, 2500);
+        }
+
+        // ============================================
+        // Sparkle Trail on Mouse Move
+        // ============================================
+        function initSparkleTrail() {
+            const sparkles = ['✨', '💫', '⭐', '💕'];
+            let lastSparkle = 0;
+
+            document.addEventListener('mousemove', (e) => {
+                const now = Date.now();
+                if (now - lastSparkle < 100) return;
+                lastSparkle = now;
+
+                const sparkle = document.createElement('span');
+                sparkle.className = 'sparkle-trail';
+                sparkle.textContent = sparkles[Math.floor(Math.random() * sparkles.length)];
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 800);
+            });
+        }
+
+        // ============================================
+        // Scroll-Triggered Animations
+        // ============================================
+        function initScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.2,
+                rootMargin: '0px 0px -10% 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const elements = entry.target.querySelectorAll(
+                            '.story-line, .preamble, .dramatic-pause, .main-question, .buttons-container, ' +
+                            '.reasons-title, .reason-card, .funfacts-title, .stat-card'
+                        );
+                        elements.forEach((el, index) => {
+                            setTimeout(() => {
+                                el.classList.add('visible');
+                            }, index * 150);
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            ['story', 'reasons', 'funfacts', 'question'].forEach(id => {
+                const section = document.getElementById(id);
+                if (section) observer.observe(section);
+            });
+        }
+
+        // ============================================
+        // Playful "No" Button - The Escape Artist (Cyclic)
+        // ============================================
+        function initNoButtonDodge() {
+            const noBtn = document.getElementById('btn-no');
+            let dodgeCount = 0;
+
+            const texts = [
+                'No', 'Nope!', 'Nice try', '😏', 'Really?', 'Think again!',
+                '🙈', 'Hmm...', 'You sure?', '💭', 'But whyyy', '🦋',
+                'Reconsider?', '👀', 'Pretty please?', '🥺', 'One more chance?'
+            ];
+
+            function dodge(e) {
+                e.preventDefault();
+                dodgeCount++;
+
+                const isMobile = window.innerWidth <= 600;
+                const maxOffsetX = isMobile ? 70 : 140;
+                const maxOffsetY = isMobile ? 50 : 90;
+
+                const offsetX = (Math.random() - 0.5) * maxOffsetX;
+                const offsetY = (Math.random() - 0.5) * maxOffsetY;
+                const rotation = (Math.random() - 0.5) * 25;
+                const scale = 0.9 + Math.random() * 0.2;
+
+                noBtn.style.transition = 'all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                noBtn.style.transform = `translate(${offsetX}px, ${offsetY}px) rotate(${rotation}deg) scale(${scale})`;
+
+                const textIndex = dodgeCount % texts.length;
+                noBtn.textContent = texts[textIndex];
+
+                // Flash effect every cycle
+                if (dodgeCount % texts.length === 0) {
+                    noBtn.style.background = 'var(--accent-rose)';
+                    noBtn.style.color = 'white';
+                    setTimeout(() => {
+                        noBtn.style.background = 'rgba(255, 255, 255, 0.8)';
+                        noBtn.style.color = 'var(--text-soft)';
+                    }, 200);
+                }
+            }
+
+            noBtn.addEventListener('mouseenter', dodge);
+            noBtn.addEventListener('touchstart', (e) => { e.preventDefault(); dodge(e); }, { passive: false });
+            noBtn.addEventListener('click', (e) => { e.preventDefault(); dodge(e); });
+        }
+
+        // ============================================
+        // "Yes" Button - Celebration Trigger
+        // ============================================
+        function initYesButton() {
+            const yesBtn = document.getElementById('btn-yes');
+            const sectionsToHide = ['landing', 'story', 'reasons', 'funfacts', 'question'];
+            const celebrationSection = document.getElementById('celebration');
+
+            yesBtn.addEventListener('click', () => {
+                // Epic celebration
+                triggerConfetti();
+                createHeartBurst();
+
+                // Hide all other sections
+                sectionsToHide.forEach(id => {
+                    document.getElementById(id).classList.add('hidden');
+                });
+
+                // Show celebration
+                celebrationSection.classList.add('active');
+                celebrationSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Continuous mini confetti
+                const miniConfetti = setInterval(() => {
+                    triggerMiniConfetti();
+                }, 3000);
+
+                // Store for cleanup
+                window.celebrationConfetti = miniConfetti;
+            });
+        }
+
+        // ============================================
+        // Restart Button
+        // ============================================
+        function initRestart() {
+            const restartBtn = document.getElementById('restart');
+            restartBtn.addEventListener('click', () => {
+                if (window.celebrationConfetti) {
+                    clearInterval(window.celebrationConfetti);
+                }
+                location.reload();
+            });
+        }
+
+        // ============================================
+        // Confetti Animation
+        // ============================================
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const colors = ['#E8A4B8', '#C9B8E8', '#F5C7A9', '#B8E8D4', '#FFB4C8', '#F5D4A8'];
+            const confetti = [];
+
+            for (let i = 0; i < 200; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    size: Math.random() * 10 + 5,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedY: Math.random() * 4 + 2,
+                    speedX: (Math.random() - 0.5) * 5,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 12,
+                    shape: Math.random() > 0.6 ? 'heart' : (Math.random() > 0.5 ? 'star' : 'rect')
+                });
+            }
+
+            function drawHeart(x, y, size, rotation) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rotation * Math.PI / 180);
+                ctx.beginPath();
+                ctx.moveTo(0, size / 4);
+                ctx.bezierCurveTo(size / 2, -size / 2, size, size / 4, 0, size);
+                ctx.bezierCurveTo(-size, size / 4, -size / 2, -size / 2, 0, size / 4);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            function drawStar(x, y, size, rotation) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(rotation * Math.PI / 180);
+                ctx.beginPath();
+                for (let i = 0; i < 5; i++) {
+                    const angle = (i * 4 * Math.PI) / 5 - Math.PI / 2;
+                    const r = i % 2 === 0 ? size : size / 2;
+                    ctx.lineTo(Math.cos(angle) * r, Math.sin(angle) * r);
+                }
+                ctx.closePath();
+                ctx.fill();
+                ctx.restore();
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let active = 0;
+
+                confetti.forEach(piece => {
+                    if (piece.y < canvas.height + 50) {
+                        active++;
+                        ctx.fillStyle = piece.color;
+
+                        if (piece.shape === 'heart') {
+                            drawHeart(piece.x, piece.y, piece.size, piece.rotation);
+                        } else if (piece.shape === 'star') {
+                            drawStar(piece.x, piece.y, piece.size, piece.rotation);
+                        } else {
+                            ctx.save();
+                            ctx.translate(piece.x, piece.y);
+                            ctx.rotate(piece.rotation * Math.PI / 180);
+                            ctx.fillRect(-piece.size / 2, -piece.size / 4, piece.size, piece.size / 2);
+                            ctx.restore();
+                        }
+
+                        piece.y += piece.speedY;
+                        piece.x += piece.speedX;
+                        piece.rotation += piece.rotationSpeed;
+                        piece.speedX += (Math.random() - 0.5) * 0.2;
+                    }
+                });
+
+                if (active > 0) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+
+            animate();
+        }
+
+        function triggerMiniConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            const colors = ['#E8A4B8', '#C9B8E8', '#FFB4C8'];
+            const confetti = [];
+
+            for (let i = 0; i < 30; i++) {
+                confetti.push({
+                    x: Math.random() * canvas.width,
+                    y: -20,
+                    size: Math.random() * 6 + 3,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    speedY: Math.random() * 2 + 1,
+                    speedX: (Math.random() - 0.5) * 2,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 8
+                });
+            }
+
+            function animate() {
+                let active = 0;
+                confetti.forEach(piece => {
+                    if (piece.y < canvas.height + 20) {
+                        active++;
+                        ctx.fillStyle = piece.color;
+                        ctx.save();
+                        ctx.translate(piece.x, piece.y);
+                        ctx.rotate(piece.rotation * Math.PI / 180);
+                        ctx.fillRect(-piece.size / 2, -piece.size / 4, piece.size, piece.size / 2);
+                        ctx.restore();
+                        piece.y += piece.speedY;
+                        piece.x += piece.speedX;
+                        piece.rotation += piece.rotationSpeed;
+                    }
+                });
+                if (active > 0) requestAnimationFrame(animate);
+            }
+            animate();
+        }
+
+        // ============================================
+        // Heart Burst Effect
+        // ============================================
+        function createHeartBurst() {
+            const celebration = document.getElementById('celebration');
+            const hearts = ['💕', '💖', '💗', '💝', '❤️', '🌹', '✨'];
+            const heartCount = 20;
+
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'heart-burst';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+
+                const angle = (i / heartCount) * 360;
+                const distance = 120 + Math.random() * 150;
+                const tx = Math.cos(angle * Math.PI / 180) * distance;
+                const ty = Math.sin(angle * Math.PI / 180) * distance;
+
+                heart.style.setProperty('--tx', tx + 'px');
+                heart.style.setProperty('--ty', ty + 'px');
+                heart.style.left = '50%';
+                heart.style.top = '50%';
+                heart.style.fontSize = (1.5 + Math.random()) + 'rem';
+                heart.style.animationDelay = (i * 0.05) + 's';
+
+                celebration.appendChild(heart);
+                setTimeout(() => heart.remove(), 1500);
+            }
+        }
+
+        // ============================================
+        // Dynamic Day Counter
+        // ============================================
+        function updateDayCount() {
+            const startDate = new Date('2024-11-20');
+            const today = new Date();
+            startDate.setHours(0, 0, 0, 0);
+            today.setHours(0, 0, 0, 0);
+            const diffDays = Math.floor((today - startDate) / (1000 * 60 * 60 * 24));
+
+            const counter = document.getElementById('day-count');
+
+            // Animated count up
+            let current = 0;
+            const increment = Math.ceil(diffDays / 60);
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= diffDays) {
+                    current = diffDays;
+                    clearInterval(timer);
+                }
+                counter.textContent = current;
+            }, 30);
+        }
+
+        // ============================================
+        // Initialize Everything
+        // ============================================
+        document.addEventListener('DOMContentLoaded', () => {
+            createMagicElements();
+            initSparkleTrail();
+            initScrollAnimations();
+            initNoButtonDodge();
+            initYesButton();
+            initRestart();
+            updateDayCount();
+        });
+
+        window.addEventListener('resize', () => {
+            const canvas = document.getElementById('confetti-canvas');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
